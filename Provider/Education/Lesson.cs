@@ -9,30 +9,27 @@ namespace Provider.Education
 {
     using System.Data;
 
-    public class Lesson
+    public class Lesson : DBData, ITable
     {
-        DBData db = new DBData();
-        
-        public const string TableName = "Lesson";
-
-        /// <summary>
-        /// Вернуть список всех уроков.
-        /// </summary>
-        public DataTable All()
+        public override string TableName
         {
-            try
+            get
             {
-                using (SqlCommand comm = new SqlCommand())
-                {
-                    comm.Connection = db.connection;
-                    comm.CommandText = "select * from Lesson";
+                return "Lesson";
+            }
+        }
 
-                }
-            }
-            catch (Exception)
-            {
-                return new DataTable(TableName);
-            }
+        public bool AddRow(string name, string description, string fileApp, AppType type)
+        {
+            DataRow newRow = this.NewRow();
+
+            newRow["ID"] = Guid.NewGuid();
+            newRow["Name"] = name;
+            newRow["Description"] = description;
+            newRow["App"] = FileToByte(fileApp);
+            newRow["AppTypeID"] = type.ID;
+
+            return AddRow(newRow);
         }
     }
 }
