@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Educations", "Educations.csproj", "{164338DE-DF49-495F-A86A-8352270AFD76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Provider", "..\Provider\Provider.csproj", "{8DC0063E-A929-411F-A17F-B5864869642D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "..\Provider\DataAccess.csproj", "{8DC0063E-A929-411F-A17F-B5864869642D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Providers", "..\Providers\Providers.csproj", "{15FC9BBB-F38E-4E25-A32A-7760D68BA37E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,16 @@ Global
 		{8DC0063E-A929-411F-A17F-B5864869642D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{8DC0063E-A929-411F-A17F-B5864869642D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{8DC0063E-A929-411F-A17F-B5864869642D}.Release|x86.ActiveCfg = Release|Any CPU
+		{15FC9BBB-F38E-4E25-A32A-7760D68BA37E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15FC9BBB-F38E-4E25-A32A-7760D68BA37E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15FC9BBB-F38E-4E25-A32A-7760D68BA37E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{15FC9BBB-F38E-4E25-A32A-7760D68BA37E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{15FC9BBB-F38E-4E25-A32A-7760D68BA37E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{15FC9BBB-F38E-4E25-A32A-7760D68BA37E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15FC9BBB-F38E-4E25-A32A-7760D68BA37E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15FC9BBB-F38E-4E25-A32A-7760D68BA37E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{15FC9BBB-F38E-4E25-A32A-7760D68BA37E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{15FC9BBB-F38E-4E25-A32A-7760D68BA37E}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

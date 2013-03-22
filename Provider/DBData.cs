@@ -6,7 +6,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace Provider
+namespace DataAccess
 {
     using System.Data.SqlTypes;
     using System.IO;
@@ -58,7 +58,7 @@ namespace Provider
             }
         }
 
-        public DataRow GetRow(Guid id)
+        public DataRow GetByID(Guid id)
         {
             try
             {

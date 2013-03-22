@@ -5,11 +5,11 @@ using System.Text;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace Provider.Education
+namespace DataAccess.Education
 {
     using System.Data;
 
-    public class Lesson : DBData, ITable
+    public class Lesson : DBData
     {
         public override string TableName
         {

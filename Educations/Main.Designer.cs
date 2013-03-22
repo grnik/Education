@@ -30,6 +30,11 @@
         {
             this.button1 = new System.Windows.Forms.Button();
             this.dtgLesson = new System.Windows.Forms.DataGridView();
+            this.clName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clApp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clAppType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TaskForLesson = new System.Windows.Forms.Button();
             this.dtgTask = new System.Windows.Forms.DataGridView();
             this.btAddLersson = new System.Windows.Forms.Button();
@@ -39,13 +44,11 @@
             this.button3 = new System.Windows.Forms.Button();
             this.rchLessonApp = new System.Windows.Forms.RichTextBox();
             this.button4 = new System.Windows.Forms.Button();
-            this.clName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clApp = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clAppType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btAnswere = new System.Windows.Forms.Button();
+            this.dtgTaskAnswere = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dtgLesson)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgTask)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgTaskAnswere)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -72,6 +75,41 @@
             this.dtgLesson.ReadOnly = true;
             this.dtgLesson.Size = new System.Drawing.Size(344, 153);
             this.dtgLesson.TabIndex = 1;
+            // 
+            // clName
+            // 
+            this.clName.DataPropertyName = "Name";
+            this.clName.HeaderText = "Name";
+            this.clName.Name = "clName";
+            this.clName.ReadOnly = true;
+            // 
+            // clDescription
+            // 
+            this.clDescription.DataPropertyName = "Description";
+            this.clDescription.HeaderText = "Description";
+            this.clDescription.Name = "clDescription";
+            this.clDescription.ReadOnly = true;
+            // 
+            // clID
+            // 
+            this.clID.DataPropertyName = "ID";
+            this.clID.HeaderText = "ID";
+            this.clID.Name = "clID";
+            this.clID.ReadOnly = true;
+            // 
+            // clApp
+            // 
+            this.clApp.DataPropertyName = "App";
+            this.clApp.HeaderText = "App";
+            this.clApp.Name = "clApp";
+            this.clApp.ReadOnly = true;
+            // 
+            // clAppType
+            // 
+            this.clAppType.DataPropertyName = "AppType";
+            this.clAppType.HeaderText = "AppType";
+            this.clAppType.Name = "clAppType";
+            this.clAppType.ReadOnly = true;
             // 
             // TaskForLesson
             // 
@@ -150,46 +188,31 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // clName
+            // btAnswere
             // 
-            this.clName.DataPropertyName = "Name";
-            this.clName.HeaderText = "Name";
-            this.clName.Name = "clName";
-            this.clName.ReadOnly = true;
+            this.btAnswere.Location = new System.Drawing.Point(4, 403);
+            this.btAnswere.Name = "btAnswere";
+            this.btAnswere.Size = new System.Drawing.Size(95, 23);
+            this.btAnswere.TabIndex = 13;
+            this.btAnswere.Text = "Ответ";
+            this.btAnswere.UseVisualStyleBackColor = true;
+            this.btAnswere.Click += new System.EventHandler(this.btAnswere_Click);
             // 
-            // clDescription
+            // dtgTaskAnswere
             // 
-            this.clDescription.DataPropertyName = "Description";
-            this.clDescription.HeaderText = "Description";
-            this.clDescription.Name = "clDescription";
-            this.clDescription.ReadOnly = true;
-            // 
-            // clID
-            // 
-            this.clID.DataPropertyName = "ID";
-            this.clID.HeaderText = "ID";
-            this.clID.Name = "clID";
-            this.clID.ReadOnly = true;
-            // 
-            // clApp
-            // 
-            this.clApp.DataPropertyName = "App";
-            this.clApp.HeaderText = "App";
-            this.clApp.Name = "clApp";
-            this.clApp.ReadOnly = true;
-            // 
-            // clAppType
-            // 
-            this.clAppType.DataPropertyName = "AppType";
-            this.clAppType.HeaderText = "AppType";
-            this.clAppType.Name = "clAppType";
-            this.clAppType.ReadOnly = true;
+            this.dtgTaskAnswere.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgTaskAnswere.Location = new System.Drawing.Point(6, 436);
+            this.dtgTaskAnswere.Name = "dtgTaskAnswere";
+            this.dtgTaskAnswere.Size = new System.Drawing.Size(721, 150);
+            this.dtgTaskAnswere.TabIndex = 14;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(737, 637);
+            this.Controls.Add(this.dtgTaskAnswere);
+            this.Controls.Add(this.btAnswere);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.rchLessonApp);
             this.Controls.Add(this.button3);
@@ -205,6 +228,7 @@
             this.Text = "Образование";
             ((System.ComponentModel.ISupportInitialize)(this.dtgLesson)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgTask)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgTaskAnswere)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,6 +252,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clID;
         private System.Windows.Forms.DataGridViewTextBoxColumn clApp;
         private System.Windows.Forms.DataGridViewTextBoxColumn clAppType;
+        private System.Windows.Forms.Button btAnswere;
+        private System.Windows.Forms.DataGridView dtgTaskAnswere;
     }
 }
 

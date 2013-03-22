@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Provider
+namespace DataAccess
 {
     using System.Data;
 
@@ -17,6 +17,17 @@ namespace Provider
         /// </summary>
         string TableName { get; }
 
+        /// <summary>
+        /// Возвращаем сроку по ее ключу
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        DataRow GetByID(Guid id);
+
+        /// <summary>
+        /// Возвращаем все строки
+        /// </summary>
+        /// <returns></returns>
         DataTable GetAll();
     }
 }

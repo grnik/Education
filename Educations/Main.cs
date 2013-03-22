@@ -6,13 +6,13 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Provider;
+using DataAccess;
 
 namespace Educations
 {
     using System.IO;
 
-    using Provider.Education;
+    using DataAccess.Education;
 
     public partial class Main : Form
     {
@@ -23,17 +23,9 @@ namespace Educations
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Provider.Education.Lesson lesson = new Lesson();
+            DataAccess.Education.Lesson lesson = new Lesson();
 
             dtgLesson.DataSource = lesson.GetAll();
-        }
-
-        private void TaskForLesson_Click(object sender, EventArgs e)
-        {
-            Provider.Education.Task task = new Task();
-
-            Guid uid = new Guid(dtgLesson.CurrentRow.Cells["clID"].Value.ToString());
-            dtgTask.DataSource = task.GetByLesson(uid);
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -69,17 +61,17 @@ namespace Educations
 
         private void btAddLersson_Click(object sender, EventArgs e)
         {
-            Provider.Education.Lesson lesson = new Lesson();
+            DataAccess.Education.Lesson lesson = new Lesson();
 
             lesson.AddRow(txtLessonName.Text, txtLessonDescription.Text, txtLessonApp.Text, AppType.AppTypeText);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Provider.Education.Lesson lesson = new Lesson();
+            DataAccess.Education.Lesson lesson = new Lesson();
 
             string id = dtgLesson.CurrentRow.Cells["clID"].Value.ToString();
-            DataRow row = lesson.GetRow(new Guid(id));
+            DataRow row = lesson.GetByID(new Guid(id));
 
             byte[] text = (byte[])row["App"];
 
@@ -87,6 +79,22 @@ namespace Educations
             string strText = encoding.GetString(text);
 
             rchLessonApp.Text = strText;
+        }
+
+        private void TaskForLesson_Click(object sender, EventArgs e)
+        {
+            DataAccess.Education.Task task = new Task();
+
+            Guid uid = new Guid(dtgLesson.CurrentRow.Cells["clID"].Value.ToString());
+            dtgTask.DataSource = task.GetByLesson(uid);
+        }
+
+        private void btAnswere_Click(object sender, EventArgs e)
+        {
+            DataAccess.Education.TaskAnswere taskAnswere = new TaskAnswere();
+
+            Guid uid = new Guid(dtgTask.CurrentRow.Cells[0].Value.ToString());
+            dtgTaskAnswere.DataSource = taskAnswere.GetByTask(uid);
         }
     }
 }

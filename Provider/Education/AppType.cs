@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Provider.Education
+namespace DataAccess.Education
 {
     public class AppType
     {
