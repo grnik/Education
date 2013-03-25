@@ -40,11 +40,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AppType.cs" />
+    <Compile Include="Helpers\AppTypeHelper.cs" />
+    <Compile Include="Helpers\IObjectHelper.cs" />
+    <Compile Include="Helpers\LessonHelper.cs" />
+    <Compile Include="Helpers\TaskAnswereHelper.cs" />
+    <Compile Include="Helpers\TaskHelper.cs" />
     <Compile Include="IAppType.cs" />
     <Compile Include="ILesson.cs" />
     <Compile Include="ITable.cs" />
-    <Compile Include="Lesson.cs" />
+    <Compile Include="Objects\AppType.cs" />
+    <Compile Include="Objects\Lesson.cs" />
+    <Compile Include="Objects\Object.cs" />
+    <Compile Include="Objects\Task.cs" />
+    <Compile Include="Objects\TaskAnswere.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -53,6 +61,7 @@
       <Name>DataAccess</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

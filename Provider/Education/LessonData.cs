@@ -9,7 +9,7 @@ namespace DataAccess.Education
 {
     using System.Data;
 
-    public class Lesson : DBData
+    public class LessonData : DBData
     {
         public override string TableName
         {
@@ -19,15 +19,15 @@ namespace DataAccess.Education
             }
         }
 
-        public bool AddRow(string name, string description, string fileApp, AppType type)
+        public bool AddRow(string name, string description, byte[] fileApp, Guid appTypeId)
         {
             DataRow newRow = this.NewRow();
 
             newRow["ID"] = Guid.NewGuid();
             newRow["Name"] = name;
             newRow["Description"] = description;
-            newRow["App"] = FileToByte(fileApp);
-            newRow["AppTypeID"] = type.ID;
+            newRow["App"] = fileApp;
+            newRow["AppTypeID"] = appTypeId;
 
             return AddRow(newRow);
         }

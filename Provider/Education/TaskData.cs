@@ -5,27 +5,27 @@ using System.Text;
 using System.Data;
 using System.Data.SqlClient;
 
-namespace DataAccess.Education
+namespace DataAccess
 {
-    public class TaskAnswere : DBData
+    public class TaskData : DBData
     {
         public override string TableName
         {
             get
             {
-                return "TaskAnswere";
+                return "Task";
             }
         }
 
-        public DataTable GetByTask(Guid taskUid)
+        public DataTable GetByLesson(Guid lessonUid)
         {
             try
             {
                 using (SqlCommand comm = new SqlCommand())
                 {
                     comm.Connection = Connection;
-                    comm.CommandText = "select * from " + TableName + " where TaskID = @TaskID";
-                    comm.Parameters.AddWithValue("TaskID", taskUid);
+                    comm.CommandText = "select * from " + TableName + " where LessonID = @LessonID";
+                    comm.Parameters.AddWithValue("LessonID", lessonUid);
                     SqlDataAdapter adapter = new SqlDataAdapter(comm);
                     DataSet data = new DataSet();
                     adapter.Fill(data, TableName);
@@ -36,7 +36,7 @@ namespace DataAccess.Education
             catch (Exception)
             {
                 return new DataTable(TableName);
-            }
+            }            
         }
     }
 }

@@ -7,7 +7,7 @@ namespace DataAccess.Education
 {
     using System.Data;
 
-    class TaskAnswereText : DBData
+    class TaskAnswereTextData : DBData
     {
         public override string TableName
         {

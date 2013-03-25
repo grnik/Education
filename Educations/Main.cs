@@ -14,6 +14,8 @@ namespace Educations
 
     using DataAccess.Education;
 
+    using Providers;
+
     public partial class Main : Form
     {
         public Main()
@@ -23,9 +25,9 @@ namespace Educations
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DataAccess.Education.Lesson lesson = new Lesson();
+            DataAccess.Education.LessonData lessonData = new LessonData();
 
-            dtgLesson.DataSource = lesson.GetAll();
+            dtgLesson.DataSource = lessonData.GetAll();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -61,40 +63,68 @@ namespace Educations
 
         private void btAddLersson_Click(object sender, EventArgs e)
         {
-            DataAccess.Education.Lesson lesson = new Lesson();
+            DataAccess.Education.LessonData lessonData = new LessonData();
 
-            lesson.AddRow(txtLessonName.Text, txtLessonDescription.Text, txtLessonApp.Text, AppType.AppTypeText);
+            lessonData.AddRow(txtLessonName.Text, txtLessonDescription.Text, DBData.FileToByte(txtLessonApp.Text), AppTypeData.AppTypeDataText.ID);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            DataAccess.Education.Lesson lesson = new Lesson();
+            DataAccess.Education.LessonData lessonData = new LessonData();
 
             string id = dtgLesson.CurrentRow.Cells["clID"].Value.ToString();
-            DataRow row = lesson.GetByID(new Guid(id));
+            DataRow row = lessonData.GetByID(new Guid(id));
 
             byte[] text = (byte[])row["App"];
-
-            Encoding encoding = Encoding.Default;
-            string strText = encoding.GetString(text);
-
-            rchLessonApp.Text = strText;
+            rchLessonApp.Text = DBData.ByteToString(text);
         }
 
         private void TaskForLesson_Click(object sender, EventArgs e)
         {
-            DataAccess.Education.Task task = new Task();
+            DataAccess.TaskData taskData = new TaskData();
 
             Guid uid = new Guid(dtgLesson.CurrentRow.Cells["clID"].Value.ToString());
-            dtgTask.DataSource = task.GetByLesson(uid);
+            dtgTask.DataSource = taskData.GetByLesson(uid);
         }
 
         private void btAnswere_Click(object sender, EventArgs e)
         {
-            DataAccess.Education.TaskAnswere taskAnswere = new TaskAnswere();
+            DataAccess.TaskAnswereData taskAnswereData = new TaskAnswereData();
 
             Guid uid = new Guid(dtgTask.CurrentRow.Cells[0].Value.ToString());
-            dtgTaskAnswere.DataSource = taskAnswere.GetByTask(uid);
+            dtgTaskAnswere.DataSource = taskAnswereData.GetByTask(uid);
+        }
+
+        private void btReadLesson_Click(object sender, EventArgs e)
+        {
+            List<Lesson> lessons = LessonHelper.GetAll();
+
+            dtgLesson.DataSource = lessons;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Guid uid = new Guid(dtgLesson.CurrentRow.Cells["clID"].Value.ToString());
+            Lesson lesson = LessonHelper.GetById(uid);
+            dtgTask.DataSource = TaskHelper.GetByLesson(lesson);
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Guid uid = new Guid(dtgTask.CurrentRow.Cells[0].Value.ToString());
+            dtgTaskAnswere.DataSource = TaskAnswereHelper.GetByTask(TaskHelper.GetById(uid));
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Guid uid = new Guid(dtgLesson.CurrentRow.Cells["clID"].Value.ToString());
+            Lesson lesson = LessonHelper.GetById(uid);
+            if(lesson.App != null)
+                rchLessonApp.Text = DBData.ByteToString(lesson.App);
+            else
+            {
+                rchLessonApp.Clear();
+            }
         }
     }
 }

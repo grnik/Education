@@ -77,6 +77,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Providers\Providers.csproj">
+      <Project>{15FC9BBB-F38E-4E25-A32A-7760D68BA37E}</Project>
+      <Name>Providers</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Provider\DataAccess.csproj">
       <Project>{8DC0063E-A929-411F-A17F-B5864869642D}</Project>
       <Name>DataAccess</Name>

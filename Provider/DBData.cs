@@ -16,8 +16,8 @@ namespace DataAccess
         private const string ConnectionString = @"Data Source=C0009;Initial Catalog=Education;Integrated Security=True";
         private static SqlConnection _connection = null;
 
-        private SqlDataAdapter da;
-        private DataSet ds;
+        internal SqlDataAdapter da;
+        internal DataSet ds;
 
         public abstract string TableName { get; }
 
@@ -45,11 +45,11 @@ namespace DataAccess
                 {
                     comm.Connection = Connection;
                     comm.CommandText = "select * from " + TableName;
-                    SqlDataAdapter adapter = new SqlDataAdapter(comm);
-                    DataSet data = new DataSet();
-                    adapter.Fill(data, TableName);
+                    da = new SqlDataAdapter(comm);
+                    ds = new DataSet();
+                    da.Fill(ds, TableName);
 
-                    return data.Tables[TableName];
+                    return ds.Tables[TableName];
                 }
             }
             catch (Exception)
@@ -67,13 +67,13 @@ namespace DataAccess
                     comm.Connection = Connection;
                     comm.CommandText = "select * from " + TableName + " where ID = @ID";
                     comm.Parameters.AddWithValue("ID", id);
-                    SqlDataAdapter adapter = new SqlDataAdapter(comm);
-                    DataSet data = new DataSet();
-                    adapter.Fill(data, TableName);
+                    da = new SqlDataAdapter(comm);
+                    ds = new DataSet();
+                    da.Fill(ds, TableName);
 
-                    if (data.Tables[TableName].Rows.Count < 1) return null;
+                    if (ds.Tables[TableName].Rows.Count < 1) return null;
 
-                    return data.Tables[TableName].Rows[0];
+                    return ds.Tables[TableName].Rows[0];
                 }
             }
             catch (Exception)
@@ -112,7 +112,14 @@ namespace DataAccess
             return true;
         }
 
-        internal byte[] FileToByte(string fileName)
+        public bool Save()
+        {
+            da.Update(ds, TableName);
+
+            return true;
+        }
+
+        public static byte[] FileToByte(string fileName)
         {
             FileStream fs = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.Read);
 
@@ -122,6 +129,13 @@ namespace DataAccess
             fs.Close();
 
             return MyData;
+        }
+
+        public static string ByteToString(byte[] binaryData)
+        {
+            Encoding encoding = Encoding.Default;
+
+            return encoding.GetString(binaryData);
         }
 
         public char[] DataCellToChar()
