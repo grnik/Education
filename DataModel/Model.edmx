@@ -1,0 +1,1153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="EducationModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="EducationModelStoreContainer">
+          <EntitySet Name="App" EntityType="EducationModel.Store.App" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AppType" EntityType="EducationModel.Store.AppType" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Author" EntityType="EducationModel.Store.Author" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AuthorCourse" EntityType="EducationModel.Store.AuthorCourse" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Course" EntityType="EducationModel.Store.Course" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Example" EntityType="EducationModel.Store.Example" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Lesson" EntityType="EducationModel.Store.Lesson" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Subject" EntityType="EducationModel.Store.Subject" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SubjectCourse" EntityType="EducationModel.Store.SubjectCourse" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Task" EntityType="EducationModel.Store.Task" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TaskAnswere" EntityType="EducationModel.Store.TaskAnswere" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TaskAnswereBool" EntityType="EducationModel.Store.TaskAnswereBool" store:Type="Tables" store:Schema="dbo" store:Name="TaskAnswereBool">
+            <DefiningQuery>SELECT 
+      [TaskAnswereBool].[ID] AS [ID], 
+      [TaskAnswereBool].[Answere] AS [Answere], 
+      [TaskAnswereBool].[Right] AS [Right]
+      FROM [dbo].[TaskAnswereBool] AS [TaskAnswereBool]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TaskAnswereCheck" EntityType="EducationModel.Store.TaskAnswereCheck" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TaskAnswereDate" EntityType="EducationModel.Store.TaskAnswereDate" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TaskAnswereEmail" EntityType="EducationModel.Store.TaskAnswereEmail" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TaskAnswereFloat" EntityType="EducationModel.Store.TaskAnswereFloat" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TaskAnswereInt" EntityType="EducationModel.Store.TaskAnswereInt" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TaskAnswereSelect" EntityType="EducationModel.Store.TaskAnswereSelect" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TaskAnswereText" EntityType="EducationModel.Store.TaskAnswereText" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_App_AppType" Association="EducationModel.Store.FK_App_AppType">
+            <End Role="AppType" EntitySet="AppType" />
+            <End Role="App" EntitySet="App" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AuthorCourse_Author" Association="EducationModel.Store.FK_AuthorCourse_Author">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="AuthorCourse" EntitySet="AuthorCourse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AuthorCourse_Course" Association="EducationModel.Store.FK_AuthorCourse_Course">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="AuthorCourse" EntitySet="AuthorCourse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lesson_App" Association="EducationModel.Store.FK_Lesson_App">
+            <End Role="App" EntitySet="App" />
+            <End Role="Lesson" EntitySet="Lesson" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubjectCourse_Course" Association="EducationModel.Store.FK_SubjectCourse_Course">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="SubjectCourse" EntitySet="SubjectCourse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubjectCourse_Subject" Association="EducationModel.Store.FK_SubjectCourse_Subject">
+            <End Role="Subject" EntitySet="Subject" />
+            <End Role="SubjectCourse" EntitySet="SubjectCourse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Task_App" Association="EducationModel.Store.FK_Task_App">
+            <End Role="App" EntitySet="App" />
+            <End Role="Task" EntitySet="Task" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Task_Lesson" Association="EducationModel.Store.FK_Task_Lesson">
+            <End Role="Lesson" EntitySet="Lesson" />
+            <End Role="Task" EntitySet="Task" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaskAnswere_Task" Association="EducationModel.Store.FK_TaskAnswere_Task">
+            <End Role="Task" EntitySet="Task" />
+            <End Role="TaskAnswere" EntitySet="TaskAnswere" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaskAnswereCheck_TaskAnswere" Association="EducationModel.Store.FK_TaskAnswereCheck_TaskAnswere">
+            <End Role="TaskAnswere" EntitySet="TaskAnswere" />
+            <End Role="TaskAnswereCheck" EntitySet="TaskAnswereCheck" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaskAnswereDate_TaskAnswere" Association="EducationModel.Store.FK_TaskAnswereDate_TaskAnswere">
+            <End Role="TaskAnswere" EntitySet="TaskAnswere" />
+            <End Role="TaskAnswereDate" EntitySet="TaskAnswereDate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaskAnswereEmail_TaskAnswere" Association="EducationModel.Store.FK_TaskAnswereEmail_TaskAnswere">
+            <End Role="TaskAnswere" EntitySet="TaskAnswere" />
+            <End Role="TaskAnswereEmail" EntitySet="TaskAnswereEmail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaskAnswereFloat_TaskAnswere" Association="EducationModel.Store.FK_TaskAnswereFloat_TaskAnswere">
+            <End Role="TaskAnswere" EntitySet="TaskAnswere" />
+            <End Role="TaskAnswereFloat" EntitySet="TaskAnswereFloat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaskAnswereInt_TaskAnswere" Association="EducationModel.Store.FK_TaskAnswereInt_TaskAnswere">
+            <End Role="TaskAnswere" EntitySet="TaskAnswere" />
+            <End Role="TaskAnswereInt" EntitySet="TaskAnswereInt" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaskAnswereSelect_TaskAnswere" Association="EducationModel.Store.FK_TaskAnswereSelect_TaskAnswere">
+            <End Role="TaskAnswere" EntitySet="TaskAnswere" />
+            <End Role="TaskAnswereSelect" EntitySet="TaskAnswereSelect" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaskAnswereText_TaskAnswere" Association="EducationModel.Store.FK_TaskAnswereText_TaskAnswere">
+            <End Role="TaskAnswere" EntitySet="TaskAnswere" />
+            <End Role="TaskAnswereText" EntitySet="TaskAnswereText" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="App">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AppTypeID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="App" Type="varbinary(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AppType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="AuthorCourse">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AuthorID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CourseID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Example">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LessonID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TaskID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="Example" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Lesson">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Description" Type="varchar(max)" />
+          <Property Name="CourseID" Type="uniqueidentifier" />
+          <Property Name="LessonOrder" Type="int" />
+          <Property Name="AppID" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="varchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SubjectCourse">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SubjectID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="CourseID" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Task">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LessonID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Task" Type="varchar(max)" />
+          <Property Name="TaskOrder" Type="int" />
+          <Property Name="AppID" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="TaskAnswere">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TaskID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AnswereOrder" Type="int" />
+          <Property Name="Visible" Type="int" />
+        </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+      предупреждение 6002: В таблице или представлении "Education.dbo.TaskAnswereBool" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.
+      -->
+        <EntityType Name="TaskAnswereBool">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Answere" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Answere" Type="varchar(max)" Nullable="false" />
+          <Property Name="Right" Type="bit" />
+        </EntityType>
+        <EntityType Name="TaskAnswereCheck">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Answere" Type="varchar(max)" Nullable="false" />
+          <Property Name="Right" Type="bit" />
+        </EntityType>
+        <EntityType Name="TaskAnswereDate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Answere" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TaskAnswereEmail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Email" Type="varchar" Nullable="false" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="TaskAnswereFloat">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Answere" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TaskAnswereInt">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Answere" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TaskAnswereSelect">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="SelectFrom" Type="int" Nullable="false" />
+          <Property Name="SelectTo" Type="int" />
+        </EntityType>
+        <EntityType Name="TaskAnswereText">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Answere" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_App_AppType">
+          <End Role="AppType" Type="EducationModel.Store.AppType" Multiplicity="1" />
+          <End Role="App" Type="EducationModel.Store.App" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="App">
+              <PropertyRef Name="AppTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AuthorCourse_Author">
+          <End Role="Author" Type="EducationModel.Store.Author" Multiplicity="1" />
+          <End Role="AuthorCourse" Type="EducationModel.Store.AuthorCourse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AuthorCourse">
+              <PropertyRef Name="AuthorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AuthorCourse_Course">
+          <End Role="Course" Type="EducationModel.Store.Course" Multiplicity="1" />
+          <End Role="AuthorCourse" Type="EducationModel.Store.AuthorCourse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AuthorCourse">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lesson_App">
+          <End Role="App" Type="EducationModel.Store.App" Multiplicity="0..1" />
+          <End Role="Lesson" Type="EducationModel.Store.Lesson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="App">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Lesson">
+              <PropertyRef Name="AppID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubjectCourse_Course">
+          <End Role="Course" Type="EducationModel.Store.Course" Multiplicity="1" />
+          <End Role="SubjectCourse" Type="EducationModel.Store.SubjectCourse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SubjectCourse">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubjectCourse_Subject">
+          <End Role="Subject" Type="EducationModel.Store.Subject" Multiplicity="1" />
+          <End Role="SubjectCourse" Type="EducationModel.Store.SubjectCourse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SubjectCourse">
+              <PropertyRef Name="SubjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Task_App">
+          <End Role="App" Type="EducationModel.Store.App" Multiplicity="0..1" />
+          <End Role="Task" Type="EducationModel.Store.Task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="App">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Task">
+              <PropertyRef Name="AppID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Task_Lesson">
+          <End Role="Lesson" Type="EducationModel.Store.Lesson" Multiplicity="1" />
+          <End Role="Task" Type="EducationModel.Store.Task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lesson">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Task">
+              <PropertyRef Name="LessonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaskAnswere_Task">
+          <End Role="Task" Type="EducationModel.Store.Task" Multiplicity="1" />
+          <End Role="TaskAnswere" Type="EducationModel.Store.TaskAnswere" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Task">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TaskAnswere">
+              <PropertyRef Name="TaskID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaskAnswereCheck_TaskAnswere">
+          <End Role="TaskAnswere" Type="EducationModel.Store.TaskAnswere" Multiplicity="1" />
+          <End Role="TaskAnswereCheck" Type="EducationModel.Store.TaskAnswereCheck" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="TaskAnswere">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TaskAnswereCheck">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaskAnswereDate_TaskAnswere">
+          <End Role="TaskAnswere" Type="EducationModel.Store.TaskAnswere" Multiplicity="1" />
+          <End Role="TaskAnswereDate" Type="EducationModel.Store.TaskAnswereDate" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="TaskAnswere">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TaskAnswereDate">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaskAnswereEmail_TaskAnswere">
+          <End Role="TaskAnswere" Type="EducationModel.Store.TaskAnswere" Multiplicity="1" />
+          <End Role="TaskAnswereEmail" Type="EducationModel.Store.TaskAnswereEmail" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="TaskAnswere">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TaskAnswereEmail">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaskAnswereFloat_TaskAnswere">
+          <End Role="TaskAnswere" Type="EducationModel.Store.TaskAnswere" Multiplicity="1" />
+          <End Role="TaskAnswereFloat" Type="EducationModel.Store.TaskAnswereFloat" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="TaskAnswere">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TaskAnswereFloat">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaskAnswereInt_TaskAnswere">
+          <End Role="TaskAnswere" Type="EducationModel.Store.TaskAnswere" Multiplicity="1" />
+          <End Role="TaskAnswereInt" Type="EducationModel.Store.TaskAnswereInt" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="TaskAnswere">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TaskAnswereInt">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaskAnswereSelect_TaskAnswere">
+          <End Role="TaskAnswere" Type="EducationModel.Store.TaskAnswere" Multiplicity="1" />
+          <End Role="TaskAnswereSelect" Type="EducationModel.Store.TaskAnswereSelect" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="TaskAnswere">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TaskAnswereSelect">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaskAnswereText_TaskAnswere">
+          <End Role="TaskAnswere" Type="EducationModel.Store.TaskAnswere" Multiplicity="1" />
+          <End Role="TaskAnswereText" Type="EducationModel.Store.TaskAnswereText" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="TaskAnswere">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TaskAnswereText">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EducationModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="EducationEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Apps" EntityType="EducationModel.App" />
+          <EntitySet Name="AppTypes" EntityType="EducationModel.AppType" />
+          <EntitySet Name="Authors" EntityType="EducationModel.Author" />
+          <EntitySet Name="Courses" EntityType="EducationModel.Course" />
+          <EntitySet Name="Examples" EntityType="EducationModel.Example" />
+          <EntitySet Name="Lessons" EntityType="EducationModel.Lesson" />
+          <EntitySet Name="Subjects" EntityType="EducationModel.Subject" />
+          <EntitySet Name="Tasks" EntityType="EducationModel.Task" />
+          <EntitySet Name="TaskAnsweres" EntityType="EducationModel.TaskAnswere" />
+          <EntitySet Name="TaskAnswereBools" EntityType="EducationModel.TaskAnswereBool" />
+          <EntitySet Name="TaskAnswereChecks" EntityType="EducationModel.TaskAnswereCheck" />
+          <EntitySet Name="TaskAnswereDates" EntityType="EducationModel.TaskAnswereDate" />
+          <EntitySet Name="TaskAnswereEmails" EntityType="EducationModel.TaskAnswereEmail" />
+          <EntitySet Name="TaskAnswereFloats" EntityType="EducationModel.TaskAnswereFloat" />
+          <EntitySet Name="TaskAnswereInts" EntityType="EducationModel.TaskAnswereInt" />
+          <EntitySet Name="TaskAnswereSelects" EntityType="EducationModel.TaskAnswereSelect" />
+          <EntitySet Name="TaskAnswereTexts" EntityType="EducationModel.TaskAnswereText" />
+          <AssociationSet Name="FK_Lesson_App" Association="EducationModel.FK_Lesson_App">
+            <End Role="App" EntitySet="Apps" />
+            <End Role="Lesson" EntitySet="Lessons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Task_Lesson" Association="EducationModel.FK_Task_Lesson">
+            <End Role="Lesson" EntitySet="Lessons" />
+            <End Role="Task" EntitySet="Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaskAnswere_Task" Association="EducationModel.FK_TaskAnswere_Task">
+            <End Role="Task" EntitySet="Tasks" />
+            <End Role="TaskAnswere" EntitySet="TaskAnsweres" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaskAnswereCheck_TaskAnswere" Association="EducationModel.FK_TaskAnswereCheck_TaskAnswere">
+            <End Role="TaskAnswere" EntitySet="TaskAnsweres" />
+            <End Role="TaskAnswereCheck" EntitySet="TaskAnswereChecks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaskAnswereDate_TaskAnswere" Association="EducationModel.FK_TaskAnswereDate_TaskAnswere">
+            <End Role="TaskAnswere" EntitySet="TaskAnsweres" />
+            <End Role="TaskAnswereDate" EntitySet="TaskAnswereDates" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaskAnswereEmail_TaskAnswere" Association="EducationModel.FK_TaskAnswereEmail_TaskAnswere">
+            <End Role="TaskAnswere" EntitySet="TaskAnsweres" />
+            <End Role="TaskAnswereEmail" EntitySet="TaskAnswereEmails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaskAnswereFloat_TaskAnswere" Association="EducationModel.FK_TaskAnswereFloat_TaskAnswere">
+            <End Role="TaskAnswere" EntitySet="TaskAnsweres" />
+            <End Role="TaskAnswereFloat" EntitySet="TaskAnswereFloats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaskAnswereInt_TaskAnswere" Association="EducationModel.FK_TaskAnswereInt_TaskAnswere">
+            <End Role="TaskAnswere" EntitySet="TaskAnsweres" />
+            <End Role="TaskAnswereInt" EntitySet="TaskAnswereInts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaskAnswereSelect_TaskAnswere" Association="EducationModel.FK_TaskAnswereSelect_TaskAnswere">
+            <End Role="TaskAnswere" EntitySet="TaskAnsweres" />
+            <End Role="TaskAnswereSelect" EntitySet="TaskAnswereSelects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TaskAnswereText_TaskAnswere" Association="EducationModel.FK_TaskAnswereText_TaskAnswere">
+            <End Role="TaskAnswere" EntitySet="TaskAnsweres" />
+            <End Role="TaskAnswereText" EntitySet="TaskAnswereTexts" />
+          </AssociationSet>
+          <EntitySet Name="AuthorCourse" EntityType="EducationModel.AuthorCourse" />
+          <EntitySet Name="SubjectCourse" EntityType="EducationModel.SubjectCourse" />
+          <AssociationSet Name="FK_App_AppType" Association="EducationModel.FK_App_AppType">
+            <End Role="AppType" EntitySet="AppTypes" />
+            <End Role="App" EntitySet="Apps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Task_App" Association="EducationModel.FK_Task_App">
+            <End Role="App" EntitySet="Apps" />
+            <End Role="Task" EntitySet="Tasks" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AuthorCourse_Author" Association="EducationModel.FK_AuthorCourse_Author">
+            <End Role="Author" EntitySet="Authors" />
+            <End Role="AuthorCourse" EntitySet="AuthorCourse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AuthorCourse_Course" Association="EducationModel.FK_AuthorCourse_Course">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="AuthorCourse" EntitySet="AuthorCourse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubjectCourse_Course" Association="EducationModel.FK_SubjectCourse_Course">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="SubjectCourse" EntitySet="SubjectCourse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubjectCourse_Subject" Association="EducationModel.FK_SubjectCourse_Subject">
+            <End Role="Subject" EntitySet="Subjects" />
+            <End Role="SubjectCourse" EntitySet="SubjectCourse" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="App">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="AppTypeID" Type="Guid" Nullable="false" />
+          <Property Name="App1" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Lessons" Relationship="EducationModel.FK_Lesson_App" FromRole="App" ToRole="Lesson" />
+          <NavigationProperty Name="AppType" Relationship="EducationModel.FK_App_AppType" FromRole="App" ToRole="AppType" />
+          <NavigationProperty Name="Task" Relationship="EducationModel.FK_Task_App" FromRole="App" ToRole="Task" />
+        </EntityType>
+        <EntityType Name="AppType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="App" Relationship="EducationModel.FK_App_AppType" FromRole="AppType" ToRole="App" />
+        </EntityType>
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="250" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="AuthorCourse" Relationship="EducationModel.FK_AuthorCourse_Author" FromRole="Author" ToRole="AuthorCourse" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="AuthorCourse" Relationship="EducationModel.FK_AuthorCourse_Course" FromRole="Course" ToRole="AuthorCourse" />
+          <NavigationProperty Name="SubjectCourse" Relationship="EducationModel.FK_SubjectCourse_Course" FromRole="Course" ToRole="SubjectCourse" />
+        </EntityType>
+        <EntityType Name="Example">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="LessonID" Type="Guid" Nullable="false" />
+          <Property Name="TaskID" Type="Guid" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Example1" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Lesson">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="CourseID" Type="Guid" />
+          <Property Name="LessonOrder" Type="Int32" />
+          <Property Name="AppID" Type="Guid" />
+          <NavigationProperty Name="App" Relationship="EducationModel.FK_Lesson_App" FromRole="Lesson" ToRole="App" />
+          <NavigationProperty Name="Tasks" Relationship="EducationModel.FK_Task_Lesson" FromRole="Lesson" ToRole="Task" />
+        </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="SubjectCourse" Relationship="EducationModel.FK_SubjectCourse_Subject" FromRole="Subject" ToRole="SubjectCourse" />
+        </EntityType>
+        <EntityType Name="Task">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="LessonID" Type="Guid" Nullable="false" />
+          <Property Name="Task1" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="TaskOrder" Type="Int32" />
+          <Property Name="AppID" Type="Guid" />
+          <NavigationProperty Name="Lesson" Relationship="EducationModel.FK_Task_Lesson" FromRole="Task" ToRole="Lesson" />
+          <NavigationProperty Name="TaskAnsweres" Relationship="EducationModel.FK_TaskAnswere_Task" FromRole="Task" ToRole="TaskAnswere" />
+          <NavigationProperty Name="App" Relationship="EducationModel.FK_Task_App" FromRole="Task" ToRole="App" />
+        </EntityType>
+        <EntityType Name="TaskAnswere">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="TaskID" Type="Guid" Nullable="false" />
+          <Property Name="AnswereOrder" Type="Int32" />
+          <Property Name="Visible" Type="Int32" />
+          <NavigationProperty Name="Task" Relationship="EducationModel.FK_TaskAnswere_Task" FromRole="TaskAnswere" ToRole="Task" />
+          <NavigationProperty Name="TaskAnswereCheck" Relationship="EducationModel.FK_TaskAnswereCheck_TaskAnswere" FromRole="TaskAnswere" ToRole="TaskAnswereCheck" />
+          <NavigationProperty Name="TaskAnswereDate" Relationship="EducationModel.FK_TaskAnswereDate_TaskAnswere" FromRole="TaskAnswere" ToRole="TaskAnswereDate" />
+          <NavigationProperty Name="TaskAnswereEmail" Relationship="EducationModel.FK_TaskAnswereEmail_TaskAnswere" FromRole="TaskAnswere" ToRole="TaskAnswereEmail" />
+          <NavigationProperty Name="TaskAnswereFloat" Relationship="EducationModel.FK_TaskAnswereFloat_TaskAnswere" FromRole="TaskAnswere" ToRole="TaskAnswereFloat" />
+          <NavigationProperty Name="TaskAnswereInt" Relationship="EducationModel.FK_TaskAnswereInt_TaskAnswere" FromRole="TaskAnswere" ToRole="TaskAnswereInt" />
+          <NavigationProperty Name="TaskAnswereSelect" Relationship="EducationModel.FK_TaskAnswereSelect_TaskAnswere" FromRole="TaskAnswere" ToRole="TaskAnswereSelect" />
+          <NavigationProperty Name="TaskAnswereText" Relationship="EducationModel.FK_TaskAnswereText_TaskAnswere" FromRole="TaskAnswere" ToRole="TaskAnswereText" />
+        </EntityType>
+        <EntityType Name="TaskAnswereBool">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="Answere" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Answere" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Right" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TaskAnswereCheck">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Answere" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Right" Type="Boolean" />
+          <NavigationProperty Name="TaskAnswere" Relationship="EducationModel.FK_TaskAnswereCheck_TaskAnswere" FromRole="TaskAnswereCheck" ToRole="TaskAnswere" />
+        </EntityType>
+        <EntityType Name="TaskAnswereDate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Answere" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="TaskAnswere" Relationship="EducationModel.FK_TaskAnswereDate_TaskAnswere" FromRole="TaskAnswereDate" ToRole="TaskAnswere" />
+        </EntityType>
+        <EntityType Name="TaskAnswereEmail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="150" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="TaskAnswere" Relationship="EducationModel.FK_TaskAnswereEmail_TaskAnswere" FromRole="TaskAnswereEmail" ToRole="TaskAnswere" />
+        </EntityType>
+        <EntityType Name="TaskAnswereFloat">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Answere" Type="Double" Nullable="false" />
+          <NavigationProperty Name="TaskAnswere" Relationship="EducationModel.FK_TaskAnswereFloat_TaskAnswere" FromRole="TaskAnswereFloat" ToRole="TaskAnswere" />
+        </EntityType>
+        <EntityType Name="TaskAnswereInt">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Answere" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TaskAnswere" Relationship="EducationModel.FK_TaskAnswereInt_TaskAnswere" FromRole="TaskAnswereInt" ToRole="TaskAnswere" />
+        </EntityType>
+        <EntityType Name="TaskAnswereSelect">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="SelectFrom" Type="Int32" Nullable="false" />
+          <Property Name="SelectTo" Type="Int32" />
+          <NavigationProperty Name="TaskAnswere" Relationship="EducationModel.FK_TaskAnswereSelect_TaskAnswere" FromRole="TaskAnswereSelect" ToRole="TaskAnswere" />
+        </EntityType>
+        <EntityType Name="TaskAnswereText">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Answere" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="TaskAnswere" Relationship="EducationModel.FK_TaskAnswereText_TaskAnswere" FromRole="TaskAnswereText" ToRole="TaskAnswere" />
+        </EntityType>
+        <Association Name="FK_Lesson_App">
+          <End Role="App" Type="EducationModel.App" Multiplicity="0..1" />
+          <End Role="Lesson" Type="EducationModel.Lesson" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="App">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Lesson">
+              <PropertyRef Name="AppID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Task_Lesson">
+          <End Role="Lesson" Type="EducationModel.Lesson" Multiplicity="1" />
+          <End Role="Task" Type="EducationModel.Task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lesson">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Task">
+              <PropertyRef Name="LessonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaskAnswere_Task">
+          <End Role="Task" Type="EducationModel.Task" Multiplicity="1" />
+          <End Role="TaskAnswere" Type="EducationModel.TaskAnswere" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Task">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TaskAnswere">
+              <PropertyRef Name="TaskID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaskAnswereCheck_TaskAnswere">
+          <End Role="TaskAnswere" Type="EducationModel.TaskAnswere" Multiplicity="1" />
+          <End Role="TaskAnswereCheck" Type="EducationModel.TaskAnswereCheck" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="TaskAnswere">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TaskAnswereCheck">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaskAnswereDate_TaskAnswere">
+          <End Role="TaskAnswere" Type="EducationModel.TaskAnswere" Multiplicity="1" />
+          <End Role="TaskAnswereDate" Type="EducationModel.TaskAnswereDate" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="TaskAnswere">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TaskAnswereDate">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaskAnswereEmail_TaskAnswere">
+          <End Role="TaskAnswere" Type="EducationModel.TaskAnswere" Multiplicity="1" />
+          <End Role="TaskAnswereEmail" Type="EducationModel.TaskAnswereEmail" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="TaskAnswere">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TaskAnswereEmail">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaskAnswereFloat_TaskAnswere">
+          <End Role="TaskAnswere" Type="EducationModel.TaskAnswere" Multiplicity="1" />
+          <End Role="TaskAnswereFloat" Type="EducationModel.TaskAnswereFloat" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="TaskAnswere">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TaskAnswereFloat">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaskAnswereInt_TaskAnswere">
+          <End Role="TaskAnswere" Type="EducationModel.TaskAnswere" Multiplicity="1" />
+          <End Role="TaskAnswereInt" Type="EducationModel.TaskAnswereInt" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="TaskAnswere">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TaskAnswereInt">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaskAnswereSelect_TaskAnswere">
+          <End Role="TaskAnswere" Type="EducationModel.TaskAnswere" Multiplicity="1" />
+          <End Role="TaskAnswereSelect" Type="EducationModel.TaskAnswereSelect" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="TaskAnswere">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TaskAnswereSelect">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TaskAnswereText_TaskAnswere">
+          <End Role="TaskAnswere" Type="EducationModel.TaskAnswere" Multiplicity="1" />
+          <End Role="TaskAnswereText" Type="EducationModel.TaskAnswereText" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="TaskAnswere">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TaskAnswereText">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="AuthorCourse">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Guid" Name="ID" Nullable="false" />
+          <Property Type="Guid" Name="AuthorID" Nullable="false" />
+          <Property Type="Guid" Name="CourseID" Nullable="false" />
+          <NavigationProperty Name="Author" Relationship="EducationModel.FK_AuthorCourse_Author" FromRole="AuthorCourse" ToRole="Author" />
+          <NavigationProperty Name="Course" Relationship="EducationModel.FK_AuthorCourse_Course" FromRole="AuthorCourse" ToRole="Course" />
+        </EntityType>
+        <EntityType Name="SubjectCourse">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Guid" Name="ID" Nullable="false" />
+          <Property Type="Guid" Name="SubjectID" Nullable="false" />
+          <Property Type="Guid" Name="CourseID" Nullable="false" />
+          <NavigationProperty Name="Course" Relationship="EducationModel.FK_SubjectCourse_Course" FromRole="SubjectCourse" ToRole="Course" />
+          <NavigationProperty Name="Subject" Relationship="EducationModel.FK_SubjectCourse_Subject" FromRole="SubjectCourse" ToRole="Subject" />
+        </EntityType>
+        <Association Name="FK_App_AppType">
+          <End Type="EducationModel.AppType" Role="AppType" Multiplicity="1" />
+          <End Type="EducationModel.App" Role="App" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AppType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="App">
+              <PropertyRef Name="AppTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Task_App">
+          <End Type="EducationModel.App" Role="App" Multiplicity="0..1" />
+          <End Type="EducationModel.Task" Role="Task" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="App">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Task">
+              <PropertyRef Name="AppID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AuthorCourse_Author">
+          <End Type="EducationModel.Author" Role="Author" Multiplicity="1" />
+          <End Type="EducationModel.AuthorCourse" Role="AuthorCourse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AuthorCourse">
+              <PropertyRef Name="AuthorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AuthorCourse_Course">
+          <End Type="EducationModel.Course" Role="Course" Multiplicity="1" />
+          <End Type="EducationModel.AuthorCourse" Role="AuthorCourse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AuthorCourse">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubjectCourse_Course">
+          <End Type="EducationModel.Course" Role="Course" Multiplicity="1" />
+          <End Type="EducationModel.SubjectCourse" Role="SubjectCourse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SubjectCourse">
+              <PropertyRef Name="CourseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubjectCourse_Subject">
+          <End Type="EducationModel.Subject" Role="Subject" Multiplicity="1" />
+          <End Type="EducationModel.SubjectCourse" Role="SubjectCourse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SubjectCourse">
+              <PropertyRef Name="SubjectID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EducationModelStoreContainer" CdmEntityContainer="EducationEntities">
+          <EntitySetMapping Name="Apps"><EntityTypeMapping TypeName="EducationModel.App"><MappingFragment StoreEntitySet="App">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="AppTypeID" ColumnName="AppTypeID" />
+            <ScalarProperty Name="App1" ColumnName="App" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="AppTypes"><EntityTypeMapping TypeName="EducationModel.AppType"><MappingFragment StoreEntitySet="AppType">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Authors"><EntityTypeMapping TypeName="EducationModel.Author"><MappingFragment StoreEntitySet="Author">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Courses"><EntityTypeMapping TypeName="EducationModel.Course"><MappingFragment StoreEntitySet="Course">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Examples"><EntityTypeMapping TypeName="EducationModel.Example"><MappingFragment StoreEntitySet="Example">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="LessonID" ColumnName="LessonID" />
+            <ScalarProperty Name="TaskID" ColumnName="TaskID" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="Example1" ColumnName="Example" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Lessons"><EntityTypeMapping TypeName="EducationModel.Lesson"><MappingFragment StoreEntitySet="Lesson">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+            <ScalarProperty Name="Description" ColumnName="Description" />
+            <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+            <ScalarProperty Name="LessonOrder" ColumnName="LessonOrder" />
+            <ScalarProperty Name="AppID" ColumnName="AppID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Subjects"><EntityTypeMapping TypeName="EducationModel.Subject"><MappingFragment StoreEntitySet="Subject">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Name" ColumnName="Name" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Tasks"><EntityTypeMapping TypeName="EducationModel.Task"><MappingFragment StoreEntitySet="Task">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="LessonID" ColumnName="LessonID" />
+            <ScalarProperty Name="Task1" ColumnName="Task" />
+            <ScalarProperty Name="TaskOrder" ColumnName="TaskOrder" />
+            <ScalarProperty Name="AppID" ColumnName="AppID" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TaskAnsweres"><EntityTypeMapping TypeName="EducationModel.TaskAnswere"><MappingFragment StoreEntitySet="TaskAnswere">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="TaskID" ColumnName="TaskID" />
+            <ScalarProperty Name="AnswereOrder" ColumnName="AnswereOrder" />
+            <ScalarProperty Name="Visible" ColumnName="Visible" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TaskAnswereBools"><EntityTypeMapping TypeName="EducationModel.TaskAnswereBool"><MappingFragment StoreEntitySet="TaskAnswereBool">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Answere" ColumnName="Answere" />
+            <ScalarProperty Name="Right" ColumnName="Right" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TaskAnswereChecks"><EntityTypeMapping TypeName="EducationModel.TaskAnswereCheck"><MappingFragment StoreEntitySet="TaskAnswereCheck">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Answere" ColumnName="Answere" />
+            <ScalarProperty Name="Right" ColumnName="Right" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TaskAnswereDates"><EntityTypeMapping TypeName="EducationModel.TaskAnswereDate"><MappingFragment StoreEntitySet="TaskAnswereDate">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Answere" ColumnName="Answere" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TaskAnswereEmails"><EntityTypeMapping TypeName="EducationModel.TaskAnswereEmail"><MappingFragment StoreEntitySet="TaskAnswereEmail">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Email" ColumnName="Email" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TaskAnswereFloats"><EntityTypeMapping TypeName="EducationModel.TaskAnswereFloat"><MappingFragment StoreEntitySet="TaskAnswereFloat">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Answere" ColumnName="Answere" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TaskAnswereInts"><EntityTypeMapping TypeName="EducationModel.TaskAnswereInt"><MappingFragment StoreEntitySet="TaskAnswereInt">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Answere" ColumnName="Answere" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TaskAnswereSelects"><EntityTypeMapping TypeName="EducationModel.TaskAnswereSelect"><MappingFragment StoreEntitySet="TaskAnswereSelect">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="SelectFrom" ColumnName="SelectFrom" />
+            <ScalarProperty Name="SelectTo" ColumnName="SelectTo" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TaskAnswereTexts"><EntityTypeMapping TypeName="EducationModel.TaskAnswereText"><MappingFragment StoreEntitySet="TaskAnswereText">
+            <ScalarProperty Name="ID" ColumnName="ID" />
+            <ScalarProperty Name="Answere" ColumnName="Answere" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="AuthorCourse">
+            <EntityTypeMapping TypeName="EducationModel.AuthorCourse">
+              <MappingFragment StoreEntitySet="AuthorCourse">
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="AuthorID" ColumnName="AuthorID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubjectCourse">
+            <EntityTypeMapping TypeName="EducationModel.SubjectCourse">
+              <MappingFragment StoreEntitySet="SubjectCourse">
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model">
+        <EntityTypeShape EntityType="EducationModel.App" Width="1.5" PointX="0.75" PointY="8.125" Height="1.5923063151041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationModel.AppType" Width="1.5" PointX="0.75" PointY="0.75" Height="1.427958984375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationModel.Author" Width="1.5" PointX="2.75" PointY="0.75" Height="1.2636116536458335" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationModel.Course" Width="1.5" PointX="0.75" PointY="3.75" Height="1.2636116536458317" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationModel.Example" Width="1.5" PointX="2.75" PointY="3.75" Height="1.7566536458333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationModel.Lesson" Width="1.5" PointX="3" PointY="7.875" Height="2.2496956380208317" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationModel.Subject" Width="1.5" PointX="4.75" PointY="0.75" Height="1.2636116536458317" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationModel.Task" Width="1.5" PointX="5.25" PointY="7.875" Height="2.0853483072916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationModel.TaskAnswere" Width="1.5" PointX="7.5" PointY="7.5" Height="2.9070849609374996" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationModel.TaskAnswereBool" Width="1.5" PointX="4.75" PointY="3.75" Height="1.4279589843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationModel.TaskAnswereCheck" Width="1.5" PointX="9.75" PointY="1.625" Height="1.592306315104171" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationModel.TaskAnswereDate" Width="1.5" PointX="9.75" PointY="3.875" Height="1.4279589843750031" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationModel.TaskAnswereEmail" Width="1.5" PointX="9.75" PointY="6.125" Height="1.4279589843750031" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationModel.TaskAnswereFloat" Width="1.5" PointX="9.75" PointY="8.25" Height="1.4279589843750031" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationModel.TaskAnswereInt" Width="1.5" PointX="9.75" PointY="10.5" Height="1.4279589843750031" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationModel.TaskAnswereSelect" Width="1.5" PointX="9.75" PointY="12.625" Height="1.5923063151041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="EducationModel.TaskAnswereText" Width="1.5" PointX="9.75" PointY="15" Height="1.4279589843750031" IsExpanded="true" />
+        <AssociationConnector Association="EducationModel.FK_Lesson_App" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="9.08550048828125" />
+          <ConnectorPoint PointX="3" PointY="9.08550048828125" />
+        </AssociationConnector>
+        <AssociationConnector Association="EducationModel.FK_Task_Lesson" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="8.9998478190104159" />
+          <ConnectorPoint PointX="5.25" PointY="8.9998478190104159" />
+        </AssociationConnector>
+        <AssociationConnector Association="EducationModel.FK_TaskAnswere_Task" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="8.9998478190104159" />
+          <ConnectorPoint PointX="7.5" PointY="8.9998478190104159" />
+        </AssociationConnector>
+        <AssociationConnector Association="EducationModel.FK_TaskAnswereCheck_TaskAnswere" ManuallyRouted="false">
+          <ConnectorPoint PointX="8.78125" PointY="7.5" />
+          <ConnectorPoint PointX="8.78125" PointY="2.8932299804687549" />
+          <ConnectorPoint PointX="9.75" PointY="2.8932299804687549" />
+        </AssociationConnector>
+        <AssociationConnector Association="EducationModel.FK_TaskAnswereDate_TaskAnswere" ManuallyRouted="false">
+          <ConnectorPoint PointX="9" PointY="7.5" />
+          <ConnectorPoint PointX="9.375" PointY="7.125" />
+          <ConnectorPoint PointX="9.375" PointY="4.5889794921875016" />
+          <ConnectorPoint PointX="9.75" PointY="4.5889794921875016" />
+        </AssociationConnector>
+        <AssociationConnector Association="EducationModel.FK_TaskAnswereEmail_TaskAnswere" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.8437475" PointY="7.5" />
+          <ConnectorPoint PointX="7.8437475" PointY="6.7812474999999992" />
+          <ConnectorPoint PointX="8.6979166666666661" PointY="6.7812474999999983" />
+          <ConnectorPoint PointX="8.8645833333333339" PointY="6.7812474999999992" />
+          <ConnectorPoint PointX="9.2916666666666661" PointY="6.7812474999999983" />
+          <ConnectorPoint PointX="9.4583333333333339" PointY="6.7812474999999992" />
+          <ConnectorPoint PointX="9.75" PointY="6.7812474999999992" />
+        </AssociationConnector>
+        <AssociationConnector Association="EducationModel.FK_TaskAnswereFloat_TaskAnswere" ManuallyRouted="false">
+          <ConnectorPoint PointX="9" PointY="8.9639794921875016" />
+          <ConnectorPoint PointX="9.75" PointY="8.9639794921875016" />
+        </AssociationConnector>
+        <AssociationConnector Association="EducationModel.FK_TaskAnswereInt_TaskAnswere" ManuallyRouted="false">
+          <ConnectorPoint PointX="8.25" PointY="10.4070849609375" />
+          <ConnectorPoint PointX="8.25" PointY="11.213979492187502" />
+          <ConnectorPoint PointX="8.5729191666666669" PointY="11.213979492187502" />
+          <ConnectorPoint PointX="8.7395858333333347" PointY="11.213979492187502" />
+          <ConnectorPoint PointX="9.75" PointY="11.213979492187502" />
+        </AssociationConnector>
+        <AssociationConnector Association="EducationModel.FK_TaskAnswereSelect_TaskAnswere" ManuallyRouted="false">
+          <ConnectorPoint PointX="8.6562525" PointY="10.4070849609375" />
+          <ConnectorPoint PointX="8.6562525" PointY="13.421153157552084" />
+          <ConnectorPoint PointX="9.75" PointY="13.421153157552084" />
+        </AssociationConnector>
+        <AssociationConnector Association="EducationModel.FK_TaskAnswereText_TaskAnswere" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.8437475" PointY="10.4070849609375" />
+          <ConnectorPoint PointX="7.8437475" PointY="15.713979492187502" />
+          <ConnectorPoint PointX="9.75" PointY="15.713979492187502" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="EducationModel.AuthorCourse" Width="1.5" PointX="7" PointY="3.75" Height="1.7566536458333388" />
+        <EntityTypeShape EntityType="EducationModel.SubjectCourse" Width="1.5" PointX="7" PointY="0.75" Height="1.7566536458333388" />
+        <AssociationConnector Association="EducationModel.FK_App_AppType" >
+          <ConnectorPoint PointX="0.75" PointY="2.177958984375" />
+          <ConnectorPoint PointX="0.375" PointY="2.552958984375" />
+          <ConnectorPoint PointX="0.375" PointY="7.7488471538461541" />
+          <ConnectorPoint PointX="0.75115284615384614" PointY="8.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="EducationModel.FK_Task_App" >
+          <ConnectorPoint PointX="2.2499999999999996" PointY="10.0460009765625" />
+          <ConnectorPoint PointX="2.625" PointY="10.4210009765625" />
+          <ConnectorPoint PointX="2.625" PointY="10.499695638020832" />
+          <ConnectorPoint PointX="4.8761528461538468" PointY="10.499695638020832" />
+          <ConnectorPoint PointX="5.2511528461538441" PointY="10.124695638020834" />
+        </AssociationConnector>
+        <AssociationConnector Association="EducationModel.FK_AuthorCourse_Author" >
+          <ConnectorPoint PointX="4.25" PointY="2.177958984375" />
+          <ConnectorPoint PointX="4.625" PointY="2.552958984375" />
+          <ConnectorPoint PointX="4.625" PointY="3.125" />
+          <ConnectorPoint PointX="6.400383615384615" PointY="3.125" />
+          <ConnectorPoint PointX="7.025383615384615" PointY="3.75" />
+        </AssociationConnector>
+        <AssociationConnector Association="EducationModel.FK_AuthorCourse_Course" >
+          <ConnectorPoint PointX="2.25" PointY="3.7753836153846154" />
+          <ConnectorPoint PointX="2.5878836153846159" PointY="3.4375" />
+          <ConnectorPoint PointX="6.6632692307692309" PointY="3.4375" />
+          <ConnectorPoint PointX="7" PointY="3.7742307692307695" />
+        </AssociationConnector>
+        <AssociationConnector Association="EducationModel.FK_SubjectCourse_Course" >
+          <ConnectorPoint PointX="2.2257692307692305" PointY="3.75" />
+          <ConnectorPoint PointX="2.6007692307692309" PointY="3.375" />
+          <ConnectorPoint PointX="6.5670502820512819" PointY="3.3749999999999996" />
+          <ConnectorPoint PointX="6.733716948717948" PointY="3.375" />
+          <ConnectorPoint PointX="7.75" PointY="3.375" />
+          <ConnectorPoint PointX="7.75" PointY="2.5066536458333388" />
+        </AssociationConnector>
+        <AssociationConnector Association="EducationModel.FK_SubjectCourse_Subject" >
+          <ConnectorPoint PointX="6.25" PointY="1.4639794921875002" />
+          <ConnectorPoint PointX="7" PointY="1.4639794921875002" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

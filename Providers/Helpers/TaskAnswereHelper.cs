@@ -8,16 +8,18 @@ using DataAccess;
 namespace Providers
 {
 
-    public class TaskAnswereHelper
+    public class TaskAnswereHelper : IModelHelper<TaskAnswere>
     {
-        public static TaskAnswere GetById(Guid id)
+        TaskHelper taskHelper = new TaskHelper();
+
+        public TaskAnswere GetById(Guid id)
         {
             TaskAnswereData data = new TaskAnswereData();
 
             return Translate(data.GetByID(id));
         }
 
-        public static List<TaskAnswere> GetByTask(Task task)
+        public List<TaskAnswere> GetByTask(Task task)
         {
             TaskAnswereData data = new TaskAnswereData();
 
@@ -31,7 +33,7 @@ namespace Providers
             return list;
         }
 
-        public static List<TaskAnswere> GetAll()
+        public List<TaskAnswere> GetAll()
         {
             TaskAnswereData data = new TaskAnswereData();
 
@@ -45,16 +47,21 @@ namespace Providers
             return list;
         }
 
-        static TaskAnswere Translate(DataRow data)
+        TaskAnswere Translate(DataRow data)
         {
             TaskAnswere newTaskAnsw = new TaskAnswere();
 
             newTaskAnsw.ID = (Guid)(data["ID"]);
-            newTaskAnsw.Task = TaskHelper.GetById((Guid)data["TaskID"]);
+            newTaskAnsw.Task = taskHelper.GetById((Guid)data["TaskID"]);
             newTaskAnsw.AnswereOrder = (int)data["AnswereOrder"];
             newTaskAnsw.Visible = (int)data["Visible"];
 
             return newTaskAnsw;
+        }
+
+        public void Save(TaskAnswere elem)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,21 +42,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\AppTypeHelper.cs" />
-    <Compile Include="Helpers\IObjectHelper.cs" />
+    <Compile Include="Helpers\CourseHelper.cs" />
+    <Compile Include="Helpers\IModelHelper.cs" />
     <Compile Include="Helpers\LessonHelper.cs" />
+    <Compile Include="Helpers\ModelAppHelper.cs" />
     <Compile Include="Helpers\TaskAnswereHelper.cs" />
     <Compile Include="Helpers\TaskHelper.cs" />
     <Compile Include="IAppType.cs" />
     <Compile Include="ILesson.cs" />
     <Compile Include="ITable.cs" />
+    <Compile Include="Objects\ModelApp.cs" />
     <Compile Include="Objects\AppType.cs" />
+    <Compile Include="Objects\Course.cs" />
     <Compile Include="Objects\Lesson.cs" />
-    <Compile Include="Objects\Object.cs" />
+    <Compile Include="Objects\ModelObject.cs" />
     <Compile Include="Objects\Task.cs" />
     <Compile Include="Objects\TaskAnswere.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataModel\DataModel.csproj">
+      <Project>{89AAF967-3232-4C69-BE4F-D8EC7DE79CB9}</Project>
+      <Name>DataModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Provider\DataAccess.csproj">
       <Project>{8DC0063E-A929-411F-A17F-B5864869642D}</Project>
       <Name>DataAccess</Name>

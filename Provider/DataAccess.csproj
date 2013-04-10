@@ -8,8 +8,8 @@
     <ProjectGuid>{8DC0063E-A929-411F-A17F-B5864869642D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Provider</RootNamespace>
-    <AssemblyName>Provider</AssemblyName>
+    <RootNamespace>DataAccess</RootNamespace>
+    <AssemblyName>DataAccess</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="DBData.cs" />
     <Compile Include="Education\AppTypeData.cs" />
+    <Compile Include="Education\CourseData.cs" />
     <Compile Include="Education\LessonData.cs" />
     <Compile Include="Education\TaskData.cs" />
     <Compile Include="Education\TaskAnswereData.cs" />

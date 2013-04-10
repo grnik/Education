@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Providers
 {
-    public class Task : Object
+    public class Task : ModelObject
     {
         public Lesson Lesson;
         public string TaskString;

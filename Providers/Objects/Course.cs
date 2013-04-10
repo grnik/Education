@@ -5,8 +5,8 @@ using System.Text;
 
 namespace Providers
 {
-    abstract public class Object
+    public class Course : ModelObject
     {
-        public Guid ID { get; set; }
+        public string Name { get; set; }
     }
 }

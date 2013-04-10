@@ -10,14 +10,14 @@ namespace Providers
     /// <summary>
     /// Описание урока
     /// </summary>
-    public class Lesson : Object
+    public class Lesson : ModelApp
     {
         public string Name { get; set; }
 
         public string Description { get; set; }
 
-        public byte[] App { get; set; }
+        public int Order { get; set; }
 
-        public AppType AppType { get; set; }
+        public Course Course { get; set; }
     }
 }

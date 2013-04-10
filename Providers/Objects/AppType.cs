@@ -5,8 +5,27 @@ using System.Text;
 
 namespace Providers
 {
-    public class AppType : Object
+    using DataAccess;
+
+    public class AppType : ModelObject
     {
+        static AppTypeHelper appTypeHelper = new AppTypeHelper();
+
+        static public AppType AppTypeDataText
+        {
+            get
+            {
+                return appTypeHelper.GetById(AppTypeData.AppTypeDataText.ID);
+            }
+        }
+        static public AppType AppTypeDataApplication
+        {
+            get
+            {
+                return appTypeHelper.GetById(AppTypeData.AppTypeDataApplication.ID);
+            }
+        }
+
         /// <summary>
         /// Название типа
         /// </summary>

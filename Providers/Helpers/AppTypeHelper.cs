@@ -3,32 +3,36 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
-using DataAccess.Education;
+using DataAccess;
 
 namespace Providers
 {
+    using DataModel;
 
-    public static class AppTypeHelper
+    public class AppTypeHelper : IModelHelper<AppType>
     {
-        public static AppType GetById(Guid id)
+        public AppType GetById(Guid id)
         {
-            AppTypeData data = new AppTypeData();
+            using (DataModel.EducationEntities context = new EducationEntities())
+            {
+                DataModel.AppType appType = context.AppTypes.FirstOrDefault(a => a.ID == id);
 
-            return Translate(data.GetByID(id));
+                return Translate(appType);
+            }
         }
 
-        public static List<AppType> GetAll()
+        public List<AppType> GetAll()
         {
-            AppTypeData data = new AppTypeData();
-
-            List<AppType> list = new List<AppType>();
-
-            DataTable table = data.GetAll();
-            foreach (DataRow row in table.Rows)
+            using (DataModel.EducationEntities context = new EducationEntities())
             {
-                list.Add(Translate(row));
+                List<AppType> list = new List<AppType>();
+
+                foreach (var elem in context.AppTypes)
+                {
+                    list.Add(Translate(elem));
+                }
+                return list;
             }
-            return list;
         }
 
         static AppType Translate(DataRow data)
@@ -39,6 +43,32 @@ namespace Providers
             newAppType.Name = data["Name"].ToString();
 
             return newAppType;
+        }
+
+        static AppType Translate(DataModel.AppType appType)
+        {
+            AppType newAppType = new AppType();
+
+            newAppType.ID = appType.ID;
+            newAppType.Name = appType.Name;
+
+            return newAppType;
+        }
+
+        public void Save(AppType elem)
+        {
+            using (DataModel.EducationEntities context = new EducationEntities())
+            {
+                DataModel.AppType appType = context.AppTypes.FirstOrDefault(a => a.ID == elem.ID);
+                if(appType == null)
+                {
+                    appType = new DataModel.AppType();
+                    appType.ID = Guid.NewGuid();
+                }
+                appType.Name = elem.Name;
+
+                context.SaveChanges();
+            }
         }
     }
 }

@@ -7,17 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using DataAccess;
+using System.IO;
+using Providers;
 
 namespace Educations
 {
-    using System.IO;
-
-    using DataAccess.Education;
-
-    using Providers;
-
     public partial class Main : Form
     {
+        private AppTypeHelper appTypeHelper = new AppTypeHelper();
+        CourseHelper courseHelper = new CourseHelper();
+        LessonHelper lessonHelper = new LessonHelper();
+        TaskAnswereHelper taskAnswereHelper = new TaskAnswereHelper();
+        TaskHelper taskHelper = new TaskHelper();
+
         public Main()
         {
             InitializeComponent();
@@ -25,7 +27,7 @@ namespace Educations
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DataAccess.Education.LessonData lessonData = new LessonData();
+            DataAccess.LessonData lessonData = new LessonData();
 
             dtgLesson.DataSource = lessonData.GetAll();
         }
@@ -63,14 +65,14 @@ namespace Educations
 
         private void btAddLersson_Click(object sender, EventArgs e)
         {
-            DataAccess.Education.LessonData lessonData = new LessonData();
+            DataAccess.LessonData lessonData = new LessonData();
 
-            lessonData.AddRow(txtLessonName.Text, txtLessonDescription.Text, DBData.FileToByte(txtLessonApp.Text), AppTypeData.AppTypeDataText.ID);
+            lessonData.AddRow(txtLessonName.Text, txtLessonDescription.Text, DBData.FileToByte(txtLessonApp.Text), AppTypeData.AppTypeDataText.ID, new Guid("a0a43c41-3314-402a-af82-2f4a021128a8"), 10);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            DataAccess.Education.LessonData lessonData = new LessonData();
+            DataAccess.LessonData lessonData = new LessonData();
 
             string id = dtgLesson.CurrentRow.Cells["clID"].Value.ToString();
             DataRow row = lessonData.GetByID(new Guid(id));
@@ -97,7 +99,7 @@ namespace Educations
 
         private void btReadLesson_Click(object sender, EventArgs e)
         {
-            List<Lesson> lessons = LessonHelper.GetAll();
+            List<Lesson> lessons = lessonHelper.GetAll();
 
             dtgLesson.DataSource = lessons;
         }
@@ -105,26 +107,57 @@ namespace Educations
         private void button2_Click(object sender, EventArgs e)
         {
             Guid uid = new Guid(dtgLesson.CurrentRow.Cells["clID"].Value.ToString());
-            Lesson lesson = LessonHelper.GetById(uid);
-            dtgTask.DataSource = TaskHelper.GetByLesson(lesson);
+            Lesson lesson = lessonHelper.GetById(uid);
+            dtgTask.DataSource = taskHelper.GetByLesson(lesson);
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
             Guid uid = new Guid(dtgTask.CurrentRow.Cells[0].Value.ToString());
-            dtgTaskAnswere.DataSource = TaskAnswereHelper.GetByTask(TaskHelper.GetById(uid));
+            dtgTaskAnswere.DataSource = taskAnswereHelper.GetByTask(taskHelper.GetById(uid));
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
             Guid uid = new Guid(dtgLesson.CurrentRow.Cells["clID"].Value.ToString());
-            Lesson lesson = LessonHelper.GetById(uid);
-            if(lesson.App != null)
+            Lesson lesson = lessonHelper.GetById(uid);
+            if (lesson.App != null)
+            {
                 rchLessonApp.Text = DBData.ByteToString(lesson.App);
+            }
             else
             {
                 rchLessonApp.Clear();
             }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Lesson lesson = new Lesson();
+
+            lesson.ID = Guid.Empty;
+            lesson.Name = txtLessonName.Text;
+            lesson.Description = txtLessonDescription.Text;
+            lesson.App = DBData.FileToByte(txtLessonApp.Text);
+            lesson.AppType = appTypeHelper.GetById(AppTypeData.AppTypeDataText.ID);
+            lesson.Order = 10;
+            lesson.Course = new Course() { ID = new Guid("a0a43c41-3314-402a-af82-2f4a021128a8"), Name = "Первый курс" };
+
+            lessonHelper.Save(lesson);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Lesson lesson = lessonHelper.GetById(new Guid(dtgLesson.CurrentRow.Cells["clID"].Value.ToString()));
+
+            lesson.Name = txtLessonName.Text;
+            lesson.Description = txtLessonDescription.Text;
+            lesson.App = DBData.FileToByte(txtLessonApp.Text);
+            lesson.AppType = appTypeHelper.GetById(AppTypeData.AppTypeDataText.ID);
+            lesson.Order = 10;
+            lesson.Course = new Course() { ID = new Guid("a0a43c41-3314-402a-af82-2f4a021128a8"), Name = "Первый курс" };
+
+            lessonHelper.Save(lesson);
         }
     }
 }

@@ -34,6 +34,11 @@ namespace DataAccess
             }
         }
 
+        public DBData()
+        {
+            this.DataSetTable();
+        }
+
         /// <summary>
         /// Вернуть все записи таблицы
         /// </summary>
@@ -45,8 +50,7 @@ namespace DataAccess
                 {
                     comm.Connection = Connection;
                     comm.CommandText = "select * from " + TableName;
-                    da = new SqlDataAdapter(comm);
-                    ds = new DataSet();
+                    da.SelectCommand = comm;
                     da.Fill(ds, TableName);
 
                     return ds.Tables[TableName];
@@ -67,8 +71,7 @@ namespace DataAccess
                     comm.Connection = Connection;
                     comm.CommandText = "select * from " + TableName + " where ID = @ID";
                     comm.Parameters.AddWithValue("ID", id);
-                    da = new SqlDataAdapter(comm);
-                    ds = new DataSet();
+                    da.SelectCommand = comm;
                     da.Fill(ds, TableName);
 
                     if (ds.Tables[TableName].Rows.Count < 1) return null;
